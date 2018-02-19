@@ -51,6 +51,16 @@ Web Panel  Backup your database in case of corruption Upload and overwrite all c
     </item>
     
     <item>
+      <title>MariaDB</title>
+      <link>/docs/mariadb/</link>
+      <pubDate>Sun, 18 Feb 2018 20:30:47 -0500</pubDate>
+      
+      <guid>/docs/mariadb/</guid>
+      <description>Adding Repo sudo apt-get install software-properties-common sudo apt-key adv --recv-keys --keyserver hkp://keyserver.ubuntu.com:80 0xF1656F24C74CD1D8 sudo add-apt-repository &#39;deb [arch=amd64,i386,ppc64el] http://nyc2.mirrors.digitalocean.com/mariadb/repo/10.2/ubuntu xenial main&#39; sudo apt-get update  Installing sudo apt-get install mariadb-server  Setup Run mysql_secure_installation
+Configuring  Navigate to your MariaDB config (Ex: /etc/mysql/mariadb.conf.d/50-server.cnf) Comment out bind-address by prefixing it with a #, so it looks like #bind-address = 127.0.0.1 Restart MySQL via sudo service mysql restart  Granting Permission Sign in to MySQL shell via mysql -u root -p and enter your password</description>
+    </item>
+    
+    <item>
       <title>Adding Server</title>
       <link>/docs/adding_server/</link>
       <pubDate>Sun, 18 Feb 2018 15:27:00 -0500</pubDate>
