@@ -1,218 +1,178 @@
-<html>
-	<head>
-		<title>SourceBans++ FAQ</title>
-		<link rel="icon" type="image/png" href="../images/sbicon.png">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-		<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
-		<script src="https://code.jquery.com/jquery-3.1.1.js" integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA=" crossorigin="anonymous"></script>
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-	</head>
-	<body>
-    <div class="container">
-		<div class="page-header">
-			<h1><img src="/images/logo.png" height="100" height="100"><small>&nbsp;FAQ</small></h1>
-			<div class="clearfix"></div>
-		</div>
-		<div class="panel panel-primary">
-			<div class="panel-heading">
-				<h3 class="panel-title">What is SourceBans++? And how is it different from Sourcebans?</h3>
-			</div>
-			<div class="panel-body">
-				<p>SourceBans++ is a global administration system for multiple Source based game servers where admins and bans can be added across more than one server.</p>
-				
-			</div>
-		</div>
-		<div id="ports" class="panel panel-info">
-			<div class="panel-heading">
-				<span class="label label-info">Web Panel</span>
-				<b>Which ports does the SourceBans Web-Panel require to be open?</b>
-			</div>
-			<div class="panel-body">
-				<p>If your web panel shows <strong>Error Connecting</strong> for your game server when it is actually online,<br />
-				ask your web host to open <strong>UDP incoming</strong> from your game server port (usually <strong>27015</strong>).</p>
-				<p>If either the <strong>RCON console</strong>, <strong>Admin Rehashing</strong> or <strong>Kick-It</strong> does not work on your web panel,<br />
-				ask your web host to open <strong>TCP outgoing</strong> to your game server port (usually <strong>27015</strong>).</p>
-				<p>Use <strong>sb_debug_connection.php</strong>, a small testing script to get more detailed debugging information. Open the php file and add your gameserver's ip and port as described in the comments.</p>
-				<p>You should always check beforehand, if your gameserver banned your webserver's ip with <code>listip</code> in rcon. Remove it from the banned_ip.cfg and <code>removeip IP</code> via rcon.</p>
-			</div>
-		</div>
-		<div class="panel panel-info">
-			<div class="panel-heading">
-				<span class="label label-info">Plugin</span>
-				<b>Why is the "Ban player" option missing in SourceMod's admin menu?</b>
-			</div>
-			<div class="panel-body">
-				<p>Most likely SourceMod's basebans.smx was still loaded when you installed SourceBans' game plugin. The game plugin automatically disables basebans.smx, but your server needs to be restarted for the "Ban player" option to come available.</p>
-				<p>Some hosters might disallow plugins to move files. Make sure the basebans.smx is in the plugins/disabled folder.</p>
-			</div>
-		</div>
-		<div class="panel panel-info">
-			<div class="panel-heading">
-				<span class="label label-info">Web Panel</span>
-				<b>Player list displays "Max Players" instead of all the players</b>
-			</div>
-			<div class="panel-body">
-				<img class="thumbnail" src="/images/not_showing_players.png" alt="Not showing players">
-				<p>Add <code>host_players_show 2</code> to your <code>server.cfg</code> or any startup config file</p>
-			</div>
-		</div>
-		<div class="panel panel-info">
-			<div class="panel-heading">
-				<span class="label label-info">Web Panel / Plugin</span>
-				<b>I wish to translate Sourcebans++ for my community</b>
-			</div>
-			<div class="panel-body">
-				<div class="row">
-					<div class="col-md-6">
-						<h4 class="text-center">Website</h4>
-						<ul class="list-group">
-							<li class="list-group-item">Copy the theme you want to translate into a new folder</li>
-							<li class="list-group-item">Modify all files ending in <code>.tpl</code> with the translation</li>
-							<li class="list-group-item">Modify <code>theme.conf.php</code> while following theme license outline</li>
-							<li class="list-group-item">Enable the theme in web panel setting and you're done</li>
-						</ul>
-					</div>
-					<div class="col-md-6" style="border-left:1px solid #DDD;">
-						<h4 class="text-center">Plugin</h4>
-						<ul class="list-group">
-							<li class="list-group-item">Before you get started, you'll need a basic understanding of syntax or else you'll mess it up</li>
-							<li class="list-group-item">Navigate to Sourcemod's <code>translations</code> directory</li>
-							<li class="list-group-item">Open <code>sourcebans.phrases.txt</code>, <code>sourcecomms.phrases.txt</code>, and <code>sourcesleuth.phrases.txt</code></li>
-							<li class="list-group-item">Follow <a href="https://wiki.alliedmods.net/Translations_(SourceMod_Scripting)" target="_blank">this guide</a> for modifying the translation files</li>
-						</ul>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="panel panel-info">
-			<div class="panel-heading">
-				<span class="label label-info">Support</span>
-				<b>Where can I get additional support?</b>
-			</div>
-			<div class="panel-body">
-				<p>Before proceeding to ask for help, please have these files ready</p>
-				<ul class="list-group">
-					<li class="list-group-item">Web Panel Related: <code>error.log</code>. For apache, it typically resides in <code>/var/log/apache2/</code>. Check the location via <code>error_log</code> in your <code>php.ini</code> file</li>
-					<li class="list-group-item">Plugin Related: <code>errors_%DATE%.log</code>, located in <code>tf/addons/sourcemod/logs</code></li>
-				</ul>
-				<p>After you gather the necessary log files, join our Discord using the button below.</p>
-				<a href="https://discord.gg/4Bhj6NU" target="_blank"><img src="/images/Discord.gif" alt="Discord"></a>
-			</div>
-		</div>
-		<div class="panel panel-warning">
-			<div class="panel-heading">
-					<span class="label label-info">Web Panel</span>
-					<b>Why is the Web-Panel showing "Error Connecting (IP:PORT)" for my server, when it's actually Online?</b>
-			</div>
-			<div class="panel-body">
-				See <a href="#ports"><b>Which ports does the SourceBans webpanel require to be open?</b></a>.
-			</div>
-		</div>
-		<div class="panel panel-warning">
-			<div class="panel-heading">
-				<span class="label label-info">Web Panel</span>
-				<b>My Banlist doesn't show up, but all other pages do. What can I do?</b>
-			</div>
-			<div class="panel-body">
-				<p>Your PHP configuration restricts SourceBans to a certain amount of memory.<br />
-				When viewing the Banlist it tries to lookup the according country for the IP. This is done by loading a ~7MB database file into the memory.</p>
-				<p>There are several ways to solve this.</p>
-				<ul class="list-group">
-					<li class="list-group-item">Remove the '//' in front of this line in your config.php: <code>define('SB_MEM', '128M');</code></li>
-					<li class="list-group-item">Ask your webhost to increase the PHP '<code>memory_limit</code>' setting.</li>
-					<li class="list-group-item">If it still doesn't show up, check the box for 'No Country Research' in your webpanel settings page.</li>
-				</ul>
-			</div>
-		</div>
-		<div class="panel panel-warning">
-			<div class="panel-heading">
-				<span class="label label-info">Web Panel</span>
-				<b>Why is Sourcebans++ not sending email reports to me (the owner)?</b>
-			</div>
-			<div class="panel-body">
-				<p>This is because, by default, the owner account is not assigned to any permission group.</p>
-				
-				<p>Navigate to <code>Admin Settings</code>, edit, and assign yourself to an admin group</p>
-			</div>
-		</div>
-		<div class="panel panel-warning">
-			<div class="panel-heading">
-				<span class="label label-info">Web Panel</span>
-				<b>I accidently locked myself out by having Steam only login, how can I fix this?</b>
-			</div>
-			<div class="panel-body">
-				<p>Using a database query tool (PHPMyAdmin), goto <code>_settings</code> table and modify <code>config.enablesteamlogin</code> setting and set the value to <code>1</code>
-			</div>
-		</div>
-		<div class="panel panel-danger">
-			<div class="panel-heading">
-				<span class="label label-info">Web Panel</span>
-				<b>Why is the webpanel showing me a blank white page?</b>
-			</div>
-			<div class="panel-body">
-				<p>This is because PHP has encountered a fatal error and cannot show any more of the page.</p>
-				<p>To show the error message that PHP produced, you need to add the debug parameter to your URL. For example, if your current URL is <a href="/web/20131207151223/http://www.sourcebans.net/index.php" title="http://www.sourcebans.net/index.php">http://www.sourcebans.net/index.php</a> then you can add the debug parameter by changing the URL to <a href="/web/20131207151223/http://www.sourcebans.net/index.php?debug=1" title="http://www.sourcebans.net/index.php?debug=1">http://www.sourcebans.net/index.php?debug=1</a></p>
-				<p>If your URL already has parameters, then add debug on the end, like this: <a href="/web/20131207151223/http://www.sourcebans.net/index.php?p=home&amp;debug=1" title="http://www.sourcebans.net/index.php?p=home&amp;debug=1">http://www.sourcebans.net/index.php?p=home&amp;debug=1</a></p>
-				<p>In most cases, the error message will be self explanatory, but if you need help, then post on our forums.</p>
-			</div>
-		</div>
-		<div class="panel panel-danger">
-			<div class="panel-heading">
-				<span class="label label-info">Plugin</span>
-				<b>Why does the game plugin error log tell me "Database failure: Could not find database conf "sourcebans"?</b>
-			</div>
-			<div class="panel-body">
-				<p>You forgot to add the "sourcebans" section to SourceMod's databases.cfg, as instructed in the installation.</p>
-			</div>
-		</div>
-		<div class="panel panel-danger">
-			<div class="panel-heading">
-				<span class="label label-info">Plugin</span>
-				<b>I get the following error: Database failure: [1044/1045/1130/2002/2003]</b>
-			</div>
-			<div class="panel-body">
-				<p>If the error message reads "Can't connect to local MySQL server through socket", you need to find the "sourcebans" section in databases.cfg and change the value of "host" from "localhost" to the path of your mysql.sock file. If you don't know where mysql.sock is located, ask your gameserver host.<br />
-				&nbsp;</p>
-				<p>Otherwise, most likely your MySQL server does not allow incoming connections from your gameserver. To fix this, you can do either of the following:</p>
-				<ul class="list-group">				
-					<li class="list-group-item">Go into your webserver's control panel and check if there's a section called MySQL Access Hosts, Remote MySQL or something named similar. There you can add the IP address mentioned in the error. This is usually the IP of your gameserver, but it can also be slightly different, so make sure you copy and paste it exactly from the error.</li>
-					<li class="list-group-item">The other option is to run the following query on your SourceBans database (for example using phpMyAdmin): <code>GRANT ALL ON database.* TO 'username'@'ip';</code></li>
-				</ul>
-				<p>You will have to replace "database" with your SourceBans database name, and "username" and "ip" with those mentioned in the error.</p>
-			</div>
-		</div>
-		<div class="panel panel-danger">
-			<div class="panel-heading">
-				<span class="label label-info">Plugin</span>
-				<b>I'm getting: Could not find driver "mysql"</b>
-			</div>
-			<div class="panel-body">
-				<ul class="list-group">
-					<li class="list-group-item">Please make sure <code>dbi.mysql.ext.so</code> (<code>dbi.mysql.ext.dll</code> on Windows) extension exists and check if it is loaded via <code>sm exts list</code></li>
-					<li class="list-group-item">Make sure the extension is executable via <code>chmod u+x dbi.mysql.ext.so</code></li>
-					<li class="list-group-item">
-						<p>Install <code>zlib</code> (<b>Requires SSH</b>):</p>
-						<ul class="list-group">
-							<li class="list-group-item">32-Bit Debian/Ubuntu: <code>apt-get install zlib1g</code></li>
-							<li class="list-group-item">64-Bit Debian/Ubuntu: <code>apt-get install lib32z1</code></li>
-							<li class="list-group-item">32/64-Bit Fedora: <code>yum install zlib.i686</code></li>
-							<li class="list-group-item">32/64-Bit Mandriva: <code>urpmi zlib1</code></li>
-							<li class="list-group-item">32-Bit SUSE: <code>zypper install libz1</code></li>
-							<li class="list-group-item">64-Bit SUSE: <code>zypper install libz1-32bit</code></li>
-						</ul>
-					</li>
-					<li class="list-group-item">If all of the above does not work, use <code>ldd -d -r dbi.mysql.ext.so</code> to look for missing dependencies, and use Google to look them up</li>
-				</ul>
-			</div>
-		</div>
-		<div class="page-header page-banner forceup"></div>
-			<div id="footer">
-				<small><p>Copyright &copy; 2014-2017 <a href="https://github.com/sbpp">SourceBans++ Dev Team</a></p></small>
-				<small><p>Copyright &copy; 2007-2014 <a href="http://www.sourcebans.net/">SourceBans Dev Team</a> - Part of <a href="http://www.gameconnect.net/">GameConnect</a></p></small>
-				&nbsp;
-			</div>
-		</div>
-	</div>
-	</body>
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+  <meta name="generator" content="Hugo 0.36.1" />
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title> FAQ </title>
+
+  
+  <meta name="description" content="Frequently Asked Questions"> 
+  
+  
+  
+  
+  
+  <meta name="robots" content="noindex">
+  
+
+  
+
+  <meta name="author" content="SourceBans&#43;&#43;">
+
+
+  <meta property="og:title" content="FAQ" />
+<meta property="og:description" content="Frequently Asked Questions" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="/faq/" />
+
+
+
+<meta property="og:updated_time" content="2018-02-18T13:50:44-05:00"/>
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  
+  
+  
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-68577666-5', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='//www.google-analytics.com/analytics.js'></script>
+
+  
+  <link href="/faq/index.xml" rel="alternate" type="application/rss+xml" title="SourceBans&#43;&#43;" /> 
+
+  <link rel="canonical" href="/faq/">  
+
+  <link rel="apple-touch-icon" sizes="180x180" href="img/favicons/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="img/favicons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="img/favicons/favicon-16x16.png">
+<link rel="manifest" href="img/favicons/site.webmanifest">
+<link rel="mask-icon" href="img/favicons/safari-pinned-tab.svg" color="#5bbad5">
+<link rel="shortcut icon" href="img/favicons/favicon.ico">
+<meta name="msapplication-TileColor" content="#2d89ef">
+<meta name="msapplication-config" content="img/favicons/browserconfig.xml">
+<meta name="theme-color" content="#1076de">
+
+
+  <link href="/css/font.css" rel="stylesheet" type="text/css">
+  <link href="/css/kube.min.css" rel="stylesheet" type="text/css">
+  <link href="/css/kube.legenda.css" rel="stylesheet" type="text/css">
+  <link href="/css/highlight.css" rel="stylesheet" type="text/css">
+  <link href="/css/master.css" rel="stylesheet" type="text/css">
+  <link href="/css/kube.demo.css" rel="stylesheet" type="text/css">
+  <link href="/css/custom.css" rel="stylesheet" type="text/css">
+
+  <script src="/js/jquery-2.1.4.min.js" type="text/javascript"></script>
+  <script defer src="/js/fontawesome-all.min.js" type="text/javascript"></script>
+
+  <script type="text/javascript" src="/js/tocbot.min.js"></script>
+</head>
+
+
+<body class="page-kube">
+  <header> <div class="show-sm">
+    <div id="nav-toggle-box">
+      <div id="nav-toggle-brand">
+        <a href="/">SourceBans&#43;&#43;</a>
+      </div><a data-component="toggleme" data-target="#top" href="#" id="nav-toggle"><i class="kube-menu"></i></a>
+    </div>
+  </div>
+  <div class="hide-sm" id="top">
+    <div id="top-brand">
+      <a href="/" title="home">SourceBans&#43;&#43;</a>
+    </div>
+    <nav id="top-nav-main">
+      <ul>
+       
+       
+    <li><a href="/blog/" >Blog</a></li>
+    
+    <li><a href="/docs/" >Docs</a></li>
+    
+    <li><a href="/faq/"  class="active">Faq</a></li>
+    
+      </ul>
+    </nav>
+    <nav id="top-nav-extra"> 
+      <ul>
+          
+      </ul>
+    </nav>
+  </div>
+ </header>
+  <main>
+
+<div id="hero" class="wrap">
+  <h1>FAQ</h1>
+    <p>Frequently Asked Questions<br></p>
+</div>
+<div id="kube-faq">
+
+
+<h2 id="i-m-having-difficulty-installing-sourcebans-can-you-help-me">I&rsquo;m having difficulty installing SourceBans++, can you help me?</h2>
+
+<p>We would love to! But first, we would like you read through our <a href="/docs/quickstart">quickstart</a> and <a href="/docs/inquiries">inquiries</a> first!
+If you are still having problem after that, feel free ask for help in <samp>#help-support</samp> in our <a href="https://discord.gg/4Bhj6NU">Discord</a> guild</p>
+
+<h2 id="when-will-sourcebans-2-0-be-released">When will SourceBans++ 2.0 be released?</h2>
+
+<p>Next Summer in Valve Time&trade;</p>
+
+<h2 id="i-want-to-contribute">I want to contribute!</h2>
+
+<p>That&rsquo;s great! You can help by taking a stab at the triaged <a href="https://github.com/sbpp/sourcebans-pp/issues">issues</a> we have!</p>
+
+</div>
+</main>
+  <footer> 
+    <footer id="footer">
+    <nav>
+      <ul>
+        <li>
+          <a href="/blog/">Blog</a>
+        </li>
+        <li>
+          <a href="/docs/">Docs</a>
+        </li>
+        <li>
+          <a href="/faq/">Faq</a>
+        </li>
+        <li>
+          <a href="https://github.com/sbpp"><i class="fab fa-github"></i></a>
+        </li>
+      </ul>
+    </nav>
+    <p>&copy; Licence MIT.</p>
+  </footer>
+ 
+</footer>
+
+
+  <script src="/js/kube.js" type="text/javascript">
+  </script>
+  <script src="/js/kube.legenda.js" type="text/javascript">
+  </script>
+  <script src="/js/master.js" type="text/javascript">
+  </script>
+</body>
+
 </html>
