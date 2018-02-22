@@ -42,6 +42,15 @@ Web Panel  Backup your database in case of corruption Switch back to the default
     </item>
     
     <item>
+      <title>Debugging Connection</title>
+      <link>/docs/debugging_connection/</link>
+      <pubDate>Wed, 21 Feb 2018 20:04:40 -0500</pubDate>
+      
+      <guid>/docs/debugging_connection/</guid>
+      <description>Check list  Your host is not blocking any traffic on your game server port (UDP Incoming &amp;amp; TCP Outgoing) Your game server is online to people outside of your network w/o any error on binding You can connect to server in-game You can use RCON through in-game console, if not view TCP Error below  Using the debug tool In SourceBans++&amp;rsquo;s root directory, there&amp;rsquo;s a connection debug tool named sb_debug_connection.</description>
+    </item>
+    
+    <item>
       <title>MariaDB</title>
       <link>/docs/mariadb/</link>
       <pubDate>Sun, 18 Feb 2018 20:30:47 -0500</pubDate>
